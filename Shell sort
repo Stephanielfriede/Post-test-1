@@ -1,0 +1,28 @@
+from random import randint
+
+
+Mylist = [randint(0,50) for i in range(10)]
+
+
+print(f'Sebelum : {Mylist}')
+print(48*"-")
+
+def shellsort (Angka, n):
+    gap = n // 2  
+    
+    while gap > 0:
+        for i in range(gap, n):
+            temp = Angka [i]
+            j = i
+
+            while j >= gap and Angka[j - gap] > temp :
+                Angka[j] = Angka[j - gap]
+                j-= gap
+
+            Angka[j] = temp
+        gap //= 2
+
+n = len(Mylist)
+
+shellsort(Mylist,n)
+print (f'Sesudah : {Mylist}')
